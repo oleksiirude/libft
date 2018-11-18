@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_contminlst.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olrudenk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/09 12:09:13 by olrudenk          #+#    #+#             */
-/*   Updated: 2018/11/09 19:07:54 by olrudenk         ###   ########.fr       */
+/*   Created: 2018/11/15 12:08:43 by olrudenk          #+#    #+#             */
+/*   Updated: 2018/11/15 13:17:48 by olrudenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr(int n)
+t_list	*ft_contminlst(t_list *root)
 {
-	unsigned int un;
+	t_list	*min;
 
-	un = n;
-	if (n < 0)
+	if (!root)
+		return (NULL);
+	min = root;
+	while (root->next)
 	{
-		ft_putchar('-');
-		un = n * -1;
+		if (min->content_size > root->next->content_size)
+			min = root->next;
+		root = root->next;
 	}
-	if (un > 9)
-	{
-		ft_putnbr(un / 10);
-		ft_putnbr(un % 10);
-	}
-	else
-		ft_putchar(un + '0');
+	return (min);
 }

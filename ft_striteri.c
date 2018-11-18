@@ -6,7 +6,7 @@
 /*   By: olrudenk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 15:01:11 by olrudenk          #+#    #+#             */
-/*   Updated: 2018/11/06 16:14:52 by olrudenk         ###   ########.fr       */
+/*   Updated: 2018/11/14 14:26:34 by olrudenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 	size_t i;
 
 	i = -1;
-	if (!s)
+	if (!s || !f)
 		return ;
 	while (s[++i])
 		f(i, &s[i]);

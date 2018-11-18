@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_lstlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olrudenk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/09 12:09:13 by olrudenk          #+#    #+#             */
-/*   Updated: 2018/11/09 19:07:54 by olrudenk         ###   ########.fr       */
+/*   Created: 2018/11/15 13:30:24 by olrudenk          #+#    #+#             */
+/*   Updated: 2018/11/15 13:36:09 by olrudenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr(int n)
+int	ft_lstlen(t_list *root)
 {
-	unsigned int un;
+	int	count;
 
-	un = n;
-	if (n < 0)
+	if (!root)
+		return (0);
+	count = 0;
+	while (root)
 	{
-		ft_putchar('-');
-		un = n * -1;
+		root = root->next;
+		count++;
 	}
-	if (un > 9)
-	{
-		ft_putnbr(un / 10);
-		ft_putnbr(un % 10);
-	}
-	else
-		ft_putchar(un + '0');
+	return (count);
 }

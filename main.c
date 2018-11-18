@@ -6,7 +6,7 @@
 /*   By: olrudenk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/26 14:54:13 by olrudenk          #+#    #+#             */
-/*   Updated: 2018/11/08 21:51:23 by olrudenk         ###   ########.fr       */
+/*   Updated: 2018/11/18 13:40:54 by olrudenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 
 /*ft_memset*/
 /*int	main(void)
+ * rm	
 {
 	char b[7] = { 'H', 'e', 'l', 'l', 'o', '\0' };
 	int b[2] = { 999, 2 };
@@ -190,12 +191,10 @@
 
 /*int	main(void)
 {
-	char dst[13] = "12345";
-	char *src = "789";
-	char dst1[13] = "12345";
-	char *src1 = "789";
-	printf("my -> %zu\n", ft_strlcat(dst, src, 5));
-	printf("or -> %zu\n", strlcat(dst1, src1, 5));
+	char dst[10] = "Hello";
+	char dst1[10] = "Hello";
+	printf("my -> %zu\n", ft_strlcat(dst, "man", 7));
+	printf("or -> %zu\n", strlcat(dst1, "man", 7));
 	printf("my dst after applying -> %s\n", dst);
 	printf("or dst after applying -> %s\n", dst1);
 	return (0);
@@ -206,9 +205,9 @@
 
 /*int	main(void)
 {
-	char *s = "C'mon let's do this qsh\0it";
-	printf("my -> %s\n", ft_strrchr(s, 'q'));
-	printf("or -> %s\n", strrchr(s, 'q'));
+	char *s = "bonjuor";
+	printf("my -> %s\n", ft_strrchr(s, 'b'));
+	printf("or -> %s\n", strrchr(s, 'b'));
 	return (0);
 }*/
 
@@ -233,10 +232,13 @@
 
 /*int	main(void)
 {
-	char *haystack = "baba haha haha";
-	char *needle = "ha";
-	printf("my -> %s\n", ft_strnstr(haystack, needle, 7));
-	printf("or -> %s\n", strnstr(haystack, needle, 7));
+	char	buf[] = "ozarabozaraboze123";
+
+	char *haystack = "bla bla bla sit bla bla bla";
+	char *needle = "sit";/
+	printf("buf -> %s\n", buf);
+	printf("my -> %s\n", ft_strnstr(buf, "ozaraboze", 15));
+	printf("or -> %s\n", strnstr(buf, "ozaraboze", 15));
 	return (0);
 }*/
 
@@ -269,7 +271,7 @@
 
 /*int	main(void)
 {
-	char *str = "			92233 2123123 o1k3o k1o2k3 o12k3k1ko1 k";
+	char *str = "-+48";
 	printf("my -> %d\n", ft_atoi(str));
 	printf("or -> %d\n", atoi(str));
 	return (0);
@@ -502,3 +504,278 @@ int	main(void)
 /*---------------------------------------------------------------------------------*/
 /*ft_putnbr*/
 
+/*int	main(void)
+{
+	ft_putnbr(11);
+	return (0);
+}*/
+
+/*---------------------------------------------------------------------------------*/
+/*ft_putchar_fd*/
+
+/*int	main(void)
+{
+	ft_putchar_fd('a', 5);
+	return (0);
+}*/
+
+/*---------------------------------------------------------------------------------*/
+/*   <---BONUS PART--->   */
+/*---------------------------------------------------------------------------------*/
+/*ft_lstnew*/
+
+/*int	main(void)
+{
+	void	*str = "yes";
+	size_t	n = 4;
+
+	ft_lstnew(str, n);
+	return (0);
+}*/
+
+/*---------------------------------------------------------------------------------*/
+/*ft_lstdelone*/
+
+/*void	del(void *content, size_t size);
+
+int	main(void)
+{
+	t_list	**ptr;
+	t_list	*tmp;
+	t_list	*root;
+	t_list	*one;
+	t_list	*two;
+	t_list	*three;
+
+	root = ft_lstnew("0kokoko", 10);
+	one = ft_lstnew("1kokoko", 131);
+	root->next = one;
+	two = ft_lstnew("2kokoko", 103);
+	one->next = two;
+	three = ft_lstnew("3kokoko", 11237);
+	two->next = three;
+	tmp = root;
+
+	while (tmp)
+	{
+		printf("%s\n", (char*)tmp->content);
+		tmp = tmp->next;
+	}
+	ptr = &one;
+	ft_lstdelone(ptr, &del);
+	return (0);
+}*/
+
+/*---------------------------------------------------------------------------------*/
+/*ft_lstiter*/
+
+/*int	main(void)
+{
+	t_list	*lst;
+	t_list	*flst;
+
+	lst = ft_lstnew("Hello World", 12);
+	flst = ft_lstnew(lst->content, lst->content_size);
+	printf("flst content %s\n", flst->content);
+	return (0);
+}*/
+
+/*---------------------------------------------------------------------------------*/
+/*ft_lstmap*/
+
+/*t_list *f(t_list *elem);*/
+
+/*int	main(void)
+{
+    t_list    *root;
+    t_list    *one;
+    t_list    *two;
+    t_list    *three;
+    
+    root = ft_lstnew("0kokoko", 10);
+    one = ft_lstnew("1kokoko", 131);
+    root->next = one;
+    two = ft_lstnew("2kokoko", 103);
+    one->next = two;
+    three = ft_lstnew("3kokoko", 11237);
+    two->next = three;
+    ft_lstmap(root, &f);
+	return (0);
+}*/
+/*---------------------------------------------------------------------------------*/
+/*   <---MY FUNCTIONS--->   */
+/*---------------------------------------------------------------------------------*/
+/*ft_elemmaxarr*/
+
+/*int	main(void)
+{
+	size_t len;
+	//int arr[12] = { -22, 231, -757832, 3294, 0, 333, 1, 9, 2, 100, 1, 1};
+	//int arr[1] = { 2 };
+	int *arr = NULL;
+
+	len = 1;
+	printf("final max is %d\n", ft_elemmaxarr(arr, len));
+	return (0);
+}*/
+
+/*---------------------------------------------------------------------------------*/
+/*ft_elemminarr*/
+
+/*int    main(void)
+{
+    size_t len;
+    int arr[12] = { -20, 231, 757832, 3294, 0, 333, 1, 9, 2, 100, 1, 1};
+    
+    len = 0;
+    printf("final min is %d\n", ft_elemminarr(arr, len));
+    return (0);
+}*/
+/*---------------------------------------------------------------------------------*/
+/*ft_swap*/
+
+/*int	main(void)
+{
+	int	a = 10;
+	int b = 20;
+	int *ap;
+	int *bp;
+	
+	ap = &a;
+	bp = &b;
+	ft_swap(ap, bp);
+	printf("a -> %d, b -> %d\n", a, b);
+	return (0);
+}*/
+
+/*---------------------------------------------------------------------------------*/
+/*ft_arrsort*/
+
+/*int	main(void)
+{
+	size_t i;
+	//int arr[13] = { 2, 1, 0, 12, 7, 7, 6, 5, 4, 3, -2, 1, 0 };
+	int arr [5] = { 100, 93, -1, 1, 0 };
+	size_t len = 5;
+
+	i = 0;
+	ft_arrsort(arr, len);
+	while (i < len)
+	{
+		printf("%d ", arr[i]);
+		i++;
+	}
+	printf("\n");
+	return (0);
+}*/
+/*---------------------------------------------------------------------------------*/
+/*ft_lstprint*/
+
+/*int    main(void)
+{
+ t_list    *root;
+ 
+ 	root = ft_lstnew("Hello", 6);
+ 	root->next = ft_lstnew("my", 3);
+ 	root->next->next = ft_lstnew("name", 5);
+ 	root->next->next->next = ft_lstnew("is", 3);
+ 	root->next->next->next->next = ft_lstnew("Oleksii", 9);
+ 	ft_lstprint(root);
+ 	return (0);
+}*/
+
+/*---------------------------------------------------------------------------------*/
+/*ft_contmaxlst*/
+
+/*int    main(void)
+{
+    t_list *root;
+	t_list *max;
+	t_list *nul = NULL;
+    
+    root = ft_lstnew("Hello", 6);
+    root->next = ft_lstnew("my", 3);
+    root->next->next = ft_lstnew("name", 5);
+    root->next->next->next = ft_lstnew("is", 3);
+    root->next->next->next->next = ft_lstnew("Oleksii", 9);
+    max = ft_contmaxlst(nul);
+	printf("max -> %zu\n", max->content_size);
+    return (0);
+}*/
+
+/*---------------------------------------------------------------------------------*/
+/*ft_contminlst*/
+
+/*int    main(void)
+{
+	t_list *root;
+	t_list *min;
+
+	root = ft_lstnew("Hello", 6);
+	root->next = ft_lstnew("my", 3);
+	root->next->next = ft_lstnew("name", 5);
+	root->next->next->next = ft_lstnew("is", 1);
+	root->next->next->next->next = ft_lstnew("Oleksii", 9);
+	min = ft_contminlst(root);
+	printf("min -> %zu\n", min->content_size);
+	return (0);
+}*/
+
+/*---------------------------------------------------------------------------------*/
+/*ft_lstlen*/
+
+/*int    main(void)
+{
+    t_list *root;
+    int		len;
+    
+    root = ft_lstnew("Hello", 6);
+    root->next = ft_lstnew("my", 3);
+    root->next->next = ft_lstnew("name", 5);
+    root->next->next->next = ft_lstnew("is", 1);
+    root->next->next->next->next = ft_lstnew("Oleksii", 9);
+    len = ft_lstlen(root);
+    printf("len -> %d\n", len);
+    return (0);
+}*/
+
+/*---------------------------------------------------------------------------------*/
+/*ft_lstsort -> HADN'T DONE*/ 
+
+/*int    main(void)
+{
+	t_list *root;
+ 	int	i;
+	
+	i = 0;
+	root = ft_lstnew("Hello", 6);
+	root->next = ft_lstnew("my", 3);
+	root->next->next = ft_lstnew("name", 5);
+	root->next->next->next = ft_lstnew("is", 1);
+	root->next->next->next->next = ft_lstnew("Oleksii", 9);
+	ft_lstsort(root);
+	i = ft_lstlen(root);
+	while (root)
+	{
+		printf("%zu\n", root->content_size);
+		root = root->next;
+	}
+	return (0);
+}*/
+
+/*---------------------------------------------------------------------------------*/
+/*ft_itoa_base.c*/
+
+/*int	main(void)
+{
+	int value;
+	int	base;
+
+	value = 943000;
+	base = 16;
+	printf("value of %d in %d base is %s\n", value, base, ft_itoa_base(value, base));
+	return (0);
+}*/
+
+/*---------------------------------------------------------------------------------*/
+/*FIN*/

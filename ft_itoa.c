@@ -6,13 +6,13 @@
 /*   By: olrudenk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 16:22:18 by olrudenk          #+#    #+#             */
-/*   Updated: 2018/11/08 21:33:16 by olrudenk         ###   ########.fr       */
+/*   Updated: 2018/11/11 14:31:18 by olrudenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_filler(int size, unsigned int nbig, char *str)
+static	char	*ft_filler(int size, unsigned int nbig, char *str)
 {
 	int tmp;
 
@@ -26,7 +26,7 @@ char	*ft_filler(int size, unsigned int nbig, char *str)
 	return (str);
 }
 
-int		ft_size(int tmp, int size)
+static	int		ft_size(int tmp, int size)
 {
 	if (!tmp)
 		size++;
@@ -41,7 +41,7 @@ int		ft_size(int tmp, int size)
 	return (size);
 }
 
-char	*ft_itoa(int n)
+char			*ft_itoa(int n)
 {
 	int				tmp;
 	unsigned int	nbig;

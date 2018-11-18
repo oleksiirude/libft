@@ -6,7 +6,7 @@
 /*   By: olrudenk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/30 18:25:40 by olrudenk          #+#    #+#             */
-/*   Updated: 2018/11/02 16:52:16 by olrudenk         ###   ########.fr       */
+/*   Updated: 2018/11/11 15:39:24 by olrudenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ char	*ft_strncat(char *s1, const char *s2, size_t n)
 	k = 0;
 	while (n-- && s2[k])
 		s1[i++] = s2[k++];
-	s1[i] = '\0';
+	s1[i] = 0;
 	return (s1);
 }

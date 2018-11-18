@@ -6,7 +6,7 @@
 /*   By: olrudenk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/30 15:08:54 by olrudenk          #+#    #+#             */
-/*   Updated: 2018/10/30 15:41:10 by olrudenk         ###   ########.fr       */
+/*   Updated: 2018/11/18 13:50:37 by olrudenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 size_t	ft_strlen(const char *s)
 {
-	unsigned long long i;
+	size_t	i;
 
 	i = 0;
 	while (s[i])

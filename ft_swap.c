@@ -1,32 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olrudenk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/09 12:09:13 by olrudenk          #+#    #+#             */
-/*   Updated: 2018/11/09 19:07:54 by olrudenk         ###   ########.fr       */
+/*   Created: 2018/11/14 17:00:29 by olrudenk          #+#    #+#             */
+/*   Updated: 2018/11/18 13:20:42 by olrudenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr(int n)
+void	ft_swap(int *a, int *b)
 {
-	unsigned int un;
+	int tmp;
 
-	un = n;
-	if (n < 0)
-	{
-		ft_putchar('-');
-		un = n * -1;
-	}
-	if (un > 9)
-	{
-		ft_putnbr(un / 10);
-		ft_putnbr(un % 10);
-	}
-	else
-		ft_putchar(un + '0');
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
 }

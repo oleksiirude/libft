@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_elemmaxarr.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olrudenk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/09 12:09:13 by olrudenk          #+#    #+#             */
-/*   Updated: 2018/11/09 19:07:54 by olrudenk         ###   ########.fr       */
+/*   Created: 2018/11/14 14:41:18 by olrudenk          #+#    #+#             */
+/*   Updated: 2018/11/18 13:18:57 by olrudenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr(int n)
+int	ft_elemmaxarr(int const *arr, size_t arrlen)
 {
-	unsigned int un;
+	int max;
 
-	un = n;
-	if (n < 0)
+	if (arrlen <= 0)
+		return (0);
+	if (!arr)
+		return (0);
+	max = *arr;
+	while (arrlen--)
 	{
-		ft_putchar('-');
-		un = n * -1;
+		if (*arr > max)
+			max = *arr;
+		arr++;
 	}
-	if (un > 9)
-	{
-		ft_putnbr(un / 10);
-		ft_putnbr(un % 10);
-	}
-	else
-		ft_putchar(un + '0');
+	return (max);
 }

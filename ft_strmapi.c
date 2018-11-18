@@ -6,7 +6,7 @@
 /*   By: olrudenk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 15:49:00 by olrudenk          #+#    #+#             */
-/*   Updated: 2018/11/07 13:14:02 by olrudenk         ###   ########.fr       */
+/*   Updated: 2018/11/14 14:30:02 by olrudenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char	*new;
 	size_t	i;
 
-	if (!s)
+	if (!s || !f)
 		return (NULL);
 	new = (char*)malloc(sizeof(char) * (ft_strlen(s) + 1));
 	if (!new)

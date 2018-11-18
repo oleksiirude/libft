@@ -1,32 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olrudenk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/09 12:09:13 by olrudenk          #+#    #+#             */
-/*   Updated: 2018/11/09 19:07:54 by olrudenk         ###   ########.fr       */
+/*   Created: 2018/11/12 18:56:55 by olrudenk          #+#    #+#             */
+/*   Updated: 2018/11/14 14:31:05 by olrudenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr(int n)
+void	ft_lstdelone(t_list **alst, void (*del)(void*, size_t))
 {
-	unsigned int un;
-
-	un = n;
-	if (n < 0)
-	{
-		ft_putchar('-');
-		un = n * -1;
-	}
-	if (un > 9)
-	{
-		ft_putnbr(un / 10);
-		ft_putnbr(un % 10);
-	}
-	else
-		ft_putchar(un + '0');
+	if (!del)
+		return ;
+	if (*alst)
+		del((*alst)->content, (*alst)->content_size);
+	*alst = NULL;
 }

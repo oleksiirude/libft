@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olrudenk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/09 12:09:13 by olrudenk          #+#    #+#             */
-/*   Updated: 2018/11/09 19:07:54 by olrudenk         ###   ########.fr       */
+/*   Created: 2018/11/13 14:55:10 by olrudenk          #+#    #+#             */
+/*   Updated: 2018/11/14 15:40:06 by olrudenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr(int n)
+void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
-	unsigned int un;
+	t_list	*tmp;
 
-	un = n;
-	if (n < 0)
+	if (!*alst || !del)
+		return ;
+	while (*alst)
 	{
-		ft_putchar('-');
-		un = n * -1;
+		tmp = *alst;
+		del((*alst)->content, (*alst)->content_size);
+		*alst = (*alst)->next;
+		free(tmp);
 	}
-	if (un > 9)
-	{
-		ft_putnbr(un / 10);
-		ft_putnbr(un % 10);
-	}
-	else
-		ft_putchar(un + '0');
+	*alst = NULL;
 }

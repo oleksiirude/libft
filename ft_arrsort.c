@@ -1,32 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_arrsort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olrudenk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/09 12:09:13 by olrudenk          #+#    #+#             */
-/*   Updated: 2018/11/09 19:07:54 by olrudenk         ###   ########.fr       */
+/*   Created: 2018/11/14 17:07:04 by olrudenk          #+#    #+#             */
+/*   Updated: 2018/11/15 13:20:18 by olrudenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr(int n)
+void	ft_arrsort(int *arr, size_t arrlen)
 {
-	unsigned int un;
+	size_t	i;
+	size_t	count;
+	int		*st;
 
-	un = n;
-	if (n < 0)
+	i = 1;
+	count = 0;
+	st = arr;
+	if (!arrlen || arrlen == 1)
+		return ;
+	while (count < arrlen)
 	{
-		ft_putchar('-');
-		un = n * -1;
+		while (i < arrlen)
+		{
+			if (*arr > *(arr + 1))
+				ft_swap(arr, (arr + 1));
+			i++;
+			arr++;
+		}
+		arr = st;
+		i = 1;
+		count++;
 	}
-	if (un > 9)
-	{
-		ft_putnbr(un / 10);
-		ft_putnbr(un % 10);
-	}
-	else
-		ft_putchar(un + '0');
 }
