@@ -6,7 +6,7 @@
 /*   By: olrudenk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/25 18:42:01 by olrudenk          #+#    #+#             */
-/*   Updated: 2018/11/18 13:43:59 by olrudenk         ###   ########.fr       */
+/*   Updated: 2018/11/18 14:05:30 by olrudenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 int					ft_elemmaxarr(int const *arr, size_t arrlen);
 int					ft_elemminarr(int const *arr, size_t arrlen);
-void				ft_swap(void *a, void *b);
+void				ft_swap(int *a, int *b);
 void				ft_lstprint(t_list *elem);
 t_list				*ft_contmaxlst(t_list *root);
 t_list				*ft_contminlst(t_list *root);
