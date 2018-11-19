@@ -6,7 +6,7 @@
 /*   By: olrudenk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 15:22:44 by olrudenk          #+#    #+#             */
-/*   Updated: 2018/11/13 16:40:25 by olrudenk         ###   ########.fr       */
+/*   Updated: 2018/11/19 13:51:07 by olrudenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstadd(t_list **alst, t_list *new)
 {
-	if (!*alst)
+	if (!alst || !*alst)
 		*alst = new;
 	else
 	{
