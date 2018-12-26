@@ -15,28 +15,28 @@
 static	int		clean_elem(int fd, t_lst **lst)
 {
 	t_lst	*tmp;
-	t_lst	*root;
+	t_lst	*head;
 
-	root = *lst;
-	while (root)
+	head = *lst;
+	while (head)
 	{
-		if (root->fd == fd)
-			if (*lst == root)
+		if (head->fd == fd)
+			if (*lst == head)
 			{
 				free((*lst)->buf);
 				free(*lst);
-				*lst = root->next;
+				*lst = head->next;
 				return (0);
 			}
-		if (root->next->fd == fd)
+		if (head->next->fd == fd)
 		{
-			tmp = root->next;
-			root->next = root->next->next;
+			tmp = head->next;
+			head->next = head->next->next;
 			free(tmp->buf);
 			free(tmp);
 			break ;
 		}
-		root = root->next;
+		head = head->next;
 	}
 	return (0);
 }
@@ -94,7 +94,7 @@ static	t_lst	*cr_elem(int fd, t_lst *lst)
 	return (tmp);
 }
 
-static	t_lst	*cr_root(int fd, t_lst *lst)
+static	t_lst	*cr_head(int fd, t_lst *lst)
 {
 	if (!(lst = (t_lst*)malloc(sizeof(t_lst))))
 		return (NULL);
@@ -116,7 +116,7 @@ int				get_next_line(const	int fd, char **line)
 		return (-1);
 	*line = ft_strdup("");
 	if (!lst)
-		if (!(lst = cr_root(fd, lst)))
+		if (!(lst = cr_head(fd, lst)))
 			return (-1);
 	if (!(tmp = cr_elem(fd, lst)))
 		return (-1);
