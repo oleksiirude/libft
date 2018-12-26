@@ -12,16 +12,16 @@
 
 #include "libft.h"
 
-int	ft_lstlen(t_list *root)
+int	ft_lstlen(t_list *head)
 {
 	int	count;
 
-	if (!root)
+	if (!head)
 		return (0);
 	count = 0;
-	while (root)
+	while (head)
 	{
-		root = root->next;
+		head = head->next;
 		count++;
 	}
 	return (count);

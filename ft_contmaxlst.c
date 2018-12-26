@@ -12,18 +12,18 @@
 
 #include "libft.h"
 
-t_list	*ft_contmaxlst(t_list *root)
+t_list	*ft_contmaxlst(t_list *head)
 {
 	t_list	*max;
 
-	if (!root)
+	if (!head)
 		return (NULL);
-	max = root;
-	while (root->next)
+	max = head;
+	while (head->next)
 	{
-		if (max->content_size < root->next->content_size)
-			max = root->next;
-		root = root->next;
+		if (max->content_size < head->next->content_size)
+			max = head->next;
+		head = head->next;
 	}
 	return (max);
 }

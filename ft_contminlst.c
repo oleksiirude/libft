@@ -12,18 +12,18 @@
 
 #include "libft.h"
 
-t_list	*ft_contminlst(t_list *root)
+t_list	*ft_contminlst(t_list *head)
 {
 	t_list	*min;
 
-	if (!root)
+	if (!head)
 		return (NULL);
-	min = root;
-	while (root->next)
+	min = head;
+	while (head->next)
 	{
-		if (min->content_size > root->next->content_size)
-			min = root->next;
-		root = root->next;
+		if (min->content_size > head->next->content_size)
+			min = head->next;
+		head = head->next;
 	}
 	return (min);
 }

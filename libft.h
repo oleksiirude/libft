@@ -17,12 +17,22 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+# define BUFF_SIZE 32
+
 typedef struct		s_list
 {
 	void			*content;
 	size_t			content_size;
 	struct s_list	*next;
 }					t_list;
+
+typedef struct		s_lst
+{
+	char			*buf;
+	int				fd;
+	int				rb;
+	struct s_lst	*next;
+}					t_lst;
 
 void				*ft_memset(void *b, int c, size_t len);
 void				ft_bzero(void *s, size_t n);
@@ -87,8 +97,10 @@ int					ft_elemmaxarr(int const *arr, size_t arrlen);
 int					ft_elemminarr(int const *arr, size_t arrlen);
 void				ft_swap(int *a, int *b);
 void				ft_lstprint(t_list *elem);
-t_list				*ft_contmaxlst(t_list *root);
-t_list				*ft_contminlst(t_list *root);
-int					ft_lstlen(t_list *root);
+t_list				*ft_contmaxlst(t_list *head);
+t_list				*ft_contminlst(t_list *head);
+int					ft_lstlen(t_list *head);
 char				*ft_itoa_base(int value, int base);
+int					get_next_line(const int fd, char **line);
+
 #endif
