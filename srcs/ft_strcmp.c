@@ -22,11 +22,9 @@ int	ft_strcmp(const char *s1, const char *s2)
 	s11 = (const unsigned char*)s1;
 	s22 = (const unsigned char*)s2;
 	while (s11[i] || s22[i])
-	{
 		if (s11[i] == s22[i])
 			i++;
 		else
 			return (s11[i] - s22[i]);
-	}
 	return (0);
 }

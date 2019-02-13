@@ -6,7 +6,7 @@
 /*   By: olrudenk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/25 18:42:01 by olrudenk          #+#    #+#             */
-/*   Updated: 2018/11/18 14:05:30 by olrudenk         ###   ########.fr       */
+/*   Updated: 2019/02/13 19:53:35 by olrudenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include "ft_printf.h"
 
 # define BUFF_SIZE 32
 
@@ -35,6 +36,7 @@ typedef struct		s_lst
 }					t_lst;
 
 void				*ft_memset(void *b, int c, size_t len);
+char				*ft_malloc_sz(size_t size);
 void				ft_bzero(void *s, size_t n);
 void				*ft_memcpy(void *dst, const void *src, size_t n);
 void				*ft_memccpy(void *dst, const void *src, int c, size_t n);
@@ -43,6 +45,7 @@ void				*ft_memchr(const void *s, int c, size_t n);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
 size_t				ft_strlen(const char *s);
 char				*ft_strdup(const char *s1);
+char				*ft_strdup_free(char *del, char *str);
 char				*ft_strcpy(char *dst, const char *src);
 char				*ft_strncpy(char *dst, const char *src, size_t len);
 char				*ft_strcat(char *s1, const char *s2);
@@ -75,7 +78,9 @@ char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 int					ft_strequ(char const *s1, char const *s2);
 int					ft_strnequ(char const *s1, char const *s2, size_t n);
 char				*ft_strsub(char const *s, unsigned int start, size_t len);
+char				*ft_strsub_free(char *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);
+char				*ft_strjoin_free(char *s1, char *s2, int sign);
 char				*ft_strtrim(char const *s);
 char				**ft_strsplit(char const *s, char c);
 char				*ft_itoa(int n);
@@ -101,6 +106,8 @@ t_list				*ft_contmaxlst(t_list *head);
 t_list				*ft_contminlst(t_list *head);
 int					ft_lstlen(t_list *head);
 char				*ft_itoa_base(int value, int base);
+char				*ft_itoa_base_ll_ed(long long value, int base);
+char				*ft_itoa_base_ull_ed(unsigned long long value, int base);
 int					get_next_line(const int fd, char **line);
 
 #endif

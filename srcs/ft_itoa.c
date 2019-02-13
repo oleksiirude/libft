@@ -31,13 +31,11 @@ static	int		ft_size(int tmp, int size)
 	if (!tmp)
 		size++;
 	else
-	{
 		while (tmp)
 		{
 			tmp /= 10;
 			size++;
 		}
-	}
 	return (size);
 }
 

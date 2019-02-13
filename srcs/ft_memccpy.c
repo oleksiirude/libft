@@ -20,7 +20,6 @@ void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 	dst_copy = dst;
 	src_copy = src;
 	while (n--)
-	{
 		if (*src_copy == (unsigned char)c)
 		{
 			*dst_copy++ = *src_copy++;
@@ -28,6 +27,5 @@ void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 		}
 		else
 			*dst_copy++ = *src_copy++;
-	}
 	return (NULL);
 }
